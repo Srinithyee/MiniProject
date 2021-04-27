@@ -1,0 +1,112 @@
+{% extends "homepage.html" %}
+
+
+{% block title%}
+Now Showing
+{% endblock %}
+
+{% block style %}
+<link href="/static/movielist.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="nowshow-container">
+    <div class="movie">
+        <div class="details">
+            <h2>MASTER</h2>
+            <p>Rating &emsp; | &emsp; 2h 58min &emsp; | &emsp; Action,Thriller &emsp; | &emsp; Tamil</p>
+             <button class="book">Book Now</button>
+            <p>An alcoholic professor is sent to a juvenile school, where he clashes with a gangster who uses the school children for criminal activities.</p>
+            <p>Director: Lokesh Kanagaraj<br>Writers: Lokesh Kanagaraj, Pon Parthiban<br>Stars: Vijay, Vijay Sethupathi, Malavika Mohanan<br></p>
+        </div>
+        <iframe src="https://www.youtube.com/embed/UTiXQcrLlv4?autoplay=1&mute=0"></iframe>
+    </div>
+
+    <div class="carousel-wrapper-show">
+        <div class="owl-carousel owl-theme">
+          {% for poster in posters %}
+          <div class="item">
+            <img src="data:image/jpeg;base64, {{poster}}" class="mov" onclick="image(this)">
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+ $('.owl-carousel').owlCarousel({
+    margin: 15,
+    loop: false,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+    responsive: {
+      0: {
+          items: 1
+       },
+      600: {
+          items: 4
+      },
+      1000: {
+          items: 6
+      }
+     }
+ });
+</script>
+</div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+ /*global DOMParser*/
+
+ function convert (str) {
+	var parser = new DOMParser();
+	var doc = parser.parseFromString(str, 'text/html');
+	return doc.body;
+ };
+
+  function image(id){
+        var im = document.querySelector('.active');
+        if(im.len >1){
+            im.classList.toggle('active');
+        }
+        id.classList.add('active');
+    }
+
+
+
+ //var cont = "<movie><name>Master<name><lang>Tamil</lang></movie><movie><name>Master<name><lang>English</lang></movie>";
+
+ window.addEventListener('load', ()=> {
+
+
+     var cont;
+
+    var aj = new XMLHttpRequest();
+
+    aj.onreadystatechange = function() {
+         if(aj.readyState == 4 && aj.status == 200){
+
+             cont = convert(aj.responseText);
+             console.log("cont",cont);
+        }
+    };
+
+    aj.open("GET", "/showm", true);
+    aj.send();
+
+    let op = con.getElementsByTagName('movie');
+
+    console.log(op, op);
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+ Welcome
+{% endblock %}
+
+
+{% block style %}
+    <style>
+    #overlay{
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.1);
+        z-index: 100;
+        cursor: pointer;
+
+    }
+
+    #flex-container{
+        display: inline-flex;
+        justify-content: center;
+
+    }
+
+    #flex-container img{
+        float : left;
+        margin: 25vh;
+    }
+
+    #text{
+        display: grid;
+    }
+
+    #text h2{
+        margin-top: 44vh;
+        margin-left: -130px;
+        font-family: "GraphiqueW01-Regular";
+        font-size: 6em;
+        text-transform: uppercase;
+        background: -webkit-linear-gradient(left, #6617cb 0%, #cb218e 74%);
+        background: -moz-linear-gradient(left, #6617cb 0%, #cb218e 74%);
+        background: -o-linear-gradient(left, #6617cb 0%, #cb218e 74%);
+        background: linear-gradient(to right, #6617cb 0%, #cb218e 74%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    #text p{
+        position: relative;
+        margin-top: -160px;
+        margin-left: -60px;
+        font-family: "Satisfy";
+        font-size: 4em;
+        color: white;
+    }
+    </style>
+
+{% endblock %}
+
+
+{% block main %}
+    <div id="overlay" onclick = "off()">
+        <div id="flex-container">
+            <img src="/static/images/logo_dark.png"></img>
+            <div id="text">
+                <h2>REEL CINEMAS</h2>
+                <p>Cinema as it should be !</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+
+        window.addEventListener("load",() =>{
+            setInterval(() => {window.location.href="/login"}, 4500);
+        });
+    </script>
+{% endblock %}
+
+

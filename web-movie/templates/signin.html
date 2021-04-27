@@ -1,0 +1,46 @@
+{% extends "startup.html" %}
+
+{% block title %}
+Log in
+{% endblock %}
+
+
+{% block body %}
+
+    <h2>Login</h2>
+    <form action = "/login" method = "post">
+        <div class="inputBox">
+            <input type="text" name="username" id="username" placeholder="User Name" autocomplete="off" required>
+        </div>
+        <div class="inputBox">
+            <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+        </div>
+        <input type="checkbox" onclick="seepass()"><label for="checkbox">Show Password</label>
+        <input type="submit" class="submit-btn" value="Submit">
+    </form>
+{% endblock %}
+
+{% block reg %}
+<input type="submit" class="submit-btn" value="Register" onclick="callReg()" style="float: right; margin-right: 220px; margin-top: -80px;">
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        function seepass(){
+        var x = document.getElementById("password");
+
+        if (x.type === "password"){
+            x.type = "text";
+        }else{
+                x.type = "password";
+            }
+        }
+
+        function callReg(){
+            location.replace("/register");
+        }
+
+    </script>
+{% endblock %}
+

@@ -1,0 +1,108 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<style>
+#box{
+    position: absolute;
+    padding: 10%;
+    margin-left: 20%;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    transform: translate(-20%, -10%);
+}
+
+.inputBox{
+    position: relative;
+    align-content: center;
+}
+
+h2{
+    text-transform: uppercase;
+    font: 40px;
+    font-family: 'Jost', sans-serif;
+    padding: 20px 30px;
+    transform: translate(-14%, 40%);
+    margin-bottom: 50px;
+}
+
+.inputBox input{
+    width: 70%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: black;
+    transform: translateX(-20%);
+    border: none;
+    border-bottom: 2px solid #8A2BE2;
+    outline: none;
+    background: transparent;
+}
+
+.inputBox label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #20BEF7;
+    cursor:pointer;
+}
+
+.submit-btn{
+    transform: translateX(-180%);
+    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #8A52EB;
+    padding: 10px 20px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div id="box">
+        <h2>Register an Admin</h2>
+        <form id = "form" action="/regadmin" method="post">
+            <div class="inputBox">
+                <input type="text" name="username" id="username" placeholder="User Name" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+            </div>
+
+            <input type="checkbox" onclick="seepass()"><label for="checkbox">Show Password</label>
+
+            <div class="inputBox">
+                <input type="text" name="email" id="email" placeholder="Mail ID" autocomplete="off" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="tel" name="contact" id="contact" pattern="[0-9]{10}" placeholder="Contact" autocomplete="off" required>
+            </div>
+
+            <input type="submit" class="submit-btn" value="Register">
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function seepass(){
+        var x = document.getElementById("password");
+
+        if (x.type === "password"){
+            x.type = "text";
+        }else{
+                x.type = "password";
+            }
+        }
+    </script>
+{% endblock %}
+
+
+
