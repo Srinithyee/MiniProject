@@ -1,0 +1,61 @@
+<div id="terms">
+    <div id="tlogo">
+        <img src="/static/images/reel.png" width="100px" height="100px" alt="logo">
+        <h1 id="name">REEL CINEMAS</h1>
+    </div>
+    <br></br>
+    <h2>Terms and Conditions</h2><br></br>
+    <p>By accessing and using this website the user accepts and agrees to be bound by the Terms and Conditions. Users should check for current Terms and Conditions as these can be updated and changed from time to time.</p>
+    <br></br><h3>Definitions</h3><br></br>
+    <ul>
+        <p>Reel means and includes all the brands working under the head of Reel Cinemas Limited.</p>
+
+        <p>User means the person accessing the website and availing the online booking facility.</p>
+
+        <p>Customer includes all the patrons of Reel and also includes the user defined above.</p>
+
+        <p>Website means <a href="https://ide-1ce4f93b81114d2ea2c7177adef0ad91-8080.cs50.ws/home">www.reelcinemas.com</a></p>
+    </ul><br></br>
+
+    <h3>Purchasing tickets online</h3><br></br>
+    <ul>
+        <p>Children aged 3 years and above will require a separate ticket.</p>
+
+        <p>The 3D glasses will be available at the cinema for 3D films and must be returned before you exit the premises. 3D Glasses are chargeable (refundable/non-refundable) as per individual cinema policies.</p>
+
+        <p>Items like laptop, cameras, knifes, lighter, match box, cigarettes, firearms and all types of inflammable objects are strictly prohibited.</p>
+
+        <p>Items like carrybags eatables, helmets, handbags are not allowed inside the theaters are strictly prohibited. Kindly deposit at the baggage counter of mall/ cinema.</p>
+    </ul>
+    <br></br>
+    <h3>Booking of tickets</h3><br></br>
+    <ul>
+        <p>The user shall be responsible for the correctness of the information provided and shall not be indemnified if the information is wrongly entered whether intentional or unintentional.</p>
+
+        <p>Once the booking has been processed, the user will receive a confirmation e-mail to their e-mail address with all the relevant details of their booking. Reel Cinemas is not responsible and will not issue a refund to the user for selecting the wrong tickets or if the user does not meet the minimum age requirements for that particular film. The online booking is non transferable and cannot be further sold.</p>
+
+        <p>The user has to carry the print of the confirmation mail. The user shall also carry proof of age for movies certified 'A'.</p>
+
+        <p>Outside FnB is not allowed.</p>
+    </ul>
+    <br></br>
+    <h3>Cancellation of tickets</h3><br></br>
+    <ul style="list-style-type: circle;">
+        <li></p>Transaction can be cancelled only after 10 minutes of booking the ticket/F&B.</p></li>
+
+        <li><p>For tickets cancelled 2 hours before show start time, 75% of ticket value will be refunded.</p></li>
+
+        <li><p>For tickets cancelled from 20 mins to 2 hours before show start time, 50% of ticket value will be refunded.</p></li>
+
+        <li><p>All refund would be done in Priviledge Points, that could be claimed for later booking.</p></li>
+
+        <li><p>Convenience fee and taxes applicable thereon will not be refunded in case of cancellation.</p></li>
+
+    </ul>
+    <br></br>
+    <h3>General Conditions</h3><br></br>
+    <p>Reel will do everything possible to ensure the show and operating times of the cinema are true to the advertisements. However due to circumstances beyond Reel's control there may be times that a film has to be cancelled or shown at a different time. In this instance the user may be given a refund of the ticket only.If any show is cancelled or cancellation is done from the management of Reel then the formalities for the same will be taken in to consideration. The user agrees not to bring in any action against Reel in such instance.</p>
+    <p>The user who has booked for a movie certified as 'A', must provide PVR Cinemas with the relevant proof of entitlement when the tickets are being collected or upon entry to the cinema.</p>
+
+    <p>The user warrants that all information supplied by him/her and members of his/her household in using the booking facility are true and accurate.</p>
+</div>

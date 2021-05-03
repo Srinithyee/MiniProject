@@ -1,0 +1,49 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<link href="/static/adminforms.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div id="box">
+        <h2>Register an Admin</h2>
+        <form id = "form" action="/regadmin" method="post">
+            <div class="inputBox">
+                <input type="text" name="username" id="username" placeholder="User Name" autocomplete="off" required>
+            </div>
+            <div class="inputBox">
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+            </div>
+
+            <input type="checkbox" onclick="seepass()"><label for="checkbox">Show Password</label>
+
+            <div class="inputBox">
+                <input type="text" name="email" id="email" placeholder="Mail ID" autocomplete="off" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="tel" name="contact" id="contact" pattern="[0-9]{10}" placeholder="Contact" autocomplete="off" required>
+            </div>
+
+            <input type="submit" class="submit-btn" value="Register">
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function seepass(){
+        var x = document.getElementById("password");
+
+        if (x.type === "password"){
+            x.type = "text";
+        }else{
+                x.type = "password";
+            }
+        }
+    </script>
+{% endblock %}
+
+
+

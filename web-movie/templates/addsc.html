@@ -1,0 +1,28 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<link href="/static/adminforms.css" rel="stylesheet">
+<style>
+#box{
+    margin-top:8%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div id="box">
+        <h2>ADD SCREEN</h2>
+        <form id = "form" action="/addscr" method="post">
+            <div class="inputBox">
+                <input type="text" name="screen_no" id="name" placeholder="Screen Number" autocomplete="off" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="number" name="seats" id="name" placeholder="Seat Capacity" autocomplete="off" required>
+            </div>
+
+            <input type="submit" class="submit-btn" value="ADD SCREEN">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,93 @@
+#box{
+    position: absolute;
+    padding: 10%;
+    margin-left: 20%;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    transform: translate(-10%, -10%);
+}
+
+.inputBox{
+    position: relative;
+    align-content: center;
+}
+
+h2{
+    text-transform: uppercase;
+    font: 40px;
+    font-family: 'Jost', sans-serif;
+    padding: 20px 30px;
+    transform: translate(-14%, 40%);
+    margin-bottom: 50px;
+}
+
+.inputBox input{
+    width: 70%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: black;
+    transform: translateX(-20%);
+    border: none;
+    border-bottom: 2px solid #8A2BE2;
+    outline: none;
+    background: transparent;
+}
+
+.linputBox label{
+    text-align: left;
+    width: 30%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: black;
+    transform: translateX(-30%);
+    outline: none;
+    background: transparent;
+    margin-right: 10%;
+    font-family: 'Jost', sans-serif;
+}
+
+.sinputBox textarea{
+    width: 30%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: rgb(0, 0, 0,0.55);
+    transform: translateX(-30%);
+    border: none;
+    border-bottom: 2px solid #8A2BE2;
+    outline: none;
+    background: transparent;
+    margin-right: 10%;
+    font-family: 'Jost', sans-serif;
+}
+
+.sinputBox input{
+    width: 30%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: black;
+    transform: translateX(-30%);
+    border: none;
+    border-bottom: 2px solid #8A2BE2;
+    outline: none;
+    background: transparent;
+    margin-right: 10%;
+}
+
+
+.submit-btn{
+    background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #8A52EB;
+    border-radius: 7px;
+    padding: 10px 20px;
+    margin-left:15%;
+    transform: translateX(-200px);
+}

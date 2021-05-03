@@ -1,0 +1,84 @@
+{% extends "homepage.html" %}
+
+
+{% block title%}
+Transaction Details
+{% endblock %}
+
+
+{% block style %}
+<link href="/static/movielist.css" rel="stylesheet">
+<style>
+
+    .det{
+		background-color: rgba(0,0,0,0.8);
+        min-height: 500px;
+        color: white;
+	}
+
+    .details{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+		color: white;
+        border-collapse: collapse;
+        border-spacing: 0;
+	 }
+
+	 .head{
+        background-color: rgba(255,255,255,0.274);
+        line-height: 50px;
+	  }
+
+      th,td{
+        padding: 10px;
+        width: max-content;
+       }
+
+       td{
+         background-color: rgba(255, 255, 255, 0.13);
+         line-height: 30px;
+        }
+
+        .ht{
+            border-left: 5px solid rgb(224, 81, 25);
+		    padding-left: 10px;
+		    line-height: 50px;
+		    font-size: 30px;
+            color: white;
+        }
+        .name{
+            margin-left:10%;
+            font-size: 18px;
+            line-height:30px;
+        }
+</style>
+{% endblock %}
+
+{% block content %}
+
+        <div class="det">
+        <br>
+        <h5 class="name">Name:&emsp;{{name}}</h5>
+        <h5 class="name">Email: &emsp;{{email}}</h5>
+        <h5 class="name">Contact:&emsp;{{contact}}</h5>
+
+        <br>
+        <h4 class="ht" style="margin-left:10%">TRANSACTION HISTORY</h4><br><br>
+        <table class="details">
+
+            <tr class="head">
+                <th>TRANSACTION ID</th>
+                <th>MOVIE</th>
+                <th>SHOW DATE AND TIMINGS</th>
+                <th>SCREEN</th>
+                <th>SEAT NUMBERS</th>
+                <th>REFUND</th>
+            </tr>
+
+
+        </table>
+        </div>
+{% endblock %}
+

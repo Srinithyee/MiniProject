@@ -1,0 +1,133 @@
+ *{
+    font-family: 'Jost', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to left, #4062bb 0%, #5200ae 74%);
+    overflow: hidden;
+}
+
+.wrapper{
+    margin: 0 5px;
+}
+
+.wrapper_inner{
+    position: relative;
+    max-width: 1750px;
+    width: 100%;
+    height: 700px;
+    background: #fff;
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.vertical_wrap{
+    position: relative;
+    height: 100%;
+}
+
+.vertical_bar{
+    width: 300px;
+    background: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+}
+
+.vertical_bar .profile_info{
+    text-align: center;
+    padding: 20px 25px;
+}
+
+.vertical_bar .profile_info img{
+    width: 100px;
+}
+
+.vertical_bar .profile_info .title{
+    font-weight: 600;
+    font-size: 20px;
+    color: #E6E6FA;
+    letter-spacing: 2px;
+}
+
+.vertical_bar .profile_info .sub_title{
+    font-size: 14px;
+    color: #000080;
+}
+
+.vertical_bar .menu{
+    padding-left: 25px;
+}
+
+
+.vertical_bar .menu a{
+    width: 275px;
+    display: block;
+    padding: 15px;
+    text-transform : uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-bottom: 2px;
+    text-decoration: none;
+}
+
+.active, .vertical_bar .menu a:hover{
+    background: #fff;
+    color:  #720e9e;
+    cursor: pointer;
+}
+
+.active .text{
+     color:  #720e9e;
+}
+
+.vertical_bar .menu a span{
+    cursor: pointer;
+}
+
+.vertical_bar .social li{
+    display: inline-flex;
+}
+
+
+.vertical_bar .social li a{
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    border: 1px solid white;
+    line-height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.vertical_bar .social li a:hover{
+    background: #fff;
+    color: #720e9e;
+}
+
+
+.main_container{
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.alert{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}

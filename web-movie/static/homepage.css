@@ -1,0 +1,209 @@
+body{
+    margin: auto;
+    overflow-y: scroll;
+}
+
+header{
+    background: linear-gradient(316deg, #4062bb 0%, #5200ae 74%);
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+.container{
+    width: 100%;
+    margin: 0 30px 0 30px;
+    justify-content: space-between;
+    align-content: space-between;
+    padding-left : 15px;
+    transform: scale(1.1);
+}
+
+
+.logo{
+    float: left;
+    padding: 5px 3px;
+    display: flex;
+}
+
+
+.logo h1{
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(left, #d9e4f5 0%, #f5e3e6 74%);
+    background: -moz-linear-gradient(left, #d9e4f5 0%, #f5e3e6 74%);
+    background: -o-linear-gradient(left, #d9e4f5 0%, #f5e3e6 74%);
+    background: linear-gradient(to right, #d9e4f5 0%, #f5e3e6 74);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-top: 25px;
+}
+
+
+.content{
+    display: flex;
+    padding-left: 70px;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+nav{
+    padding-left: 10px;
+    margin-right: 35px;
+}
+
+nav ul{
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 25px;
+    margin-right: 0px;
+    text-align: center;
+    position: relative;
+}
+
+nav .a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(left, #d9e4f5 0%, #f5e3e6 74%);
+    background: -moz-linear-gradient(left, #d9e4f5 0%, #f5e3e6 74%);
+    background: -o-linear-gradient(left, #d9e4f5 0%, #f5e3e6 74%);
+    background: linear-gradient(to right, #d9e4f5 0%, #f5e3e6 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav .a::before{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #E0E8F2 ;
+    position: absolute;
+    top: 10px;
+    transition: all ease-in-out 300ms;
+}
+
+nav .a:hover::before{
+    width: 100%;
+}
+
+
+
+.content img{
+    margin-right: 0px;
+    padding-top: 10px;
+    margin-left: 5px;
+}
+
+
+.container-footer{
+    margin-top: 5px;
+    position: absolute;
+    background: -webkit-linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    background: -moz-linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    background: -o-linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    background: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 30px;
+    margin-right: 0px;
+}
+
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width : 16%;
+    padding: 0 2em;
+}
+
+.footer-coli{
+    width: 30%;
+    padding: 0 10px;
+}
+
+.footer-col-img{
+    width : 14%;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 0 10px;
+}
+
+.footer-coli .content{
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 300;
+	color: white;
+	line-height: 40px;
+}
+
+.footer-coli .social-links a{
+	display: inline-block;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    border: 1px solid white;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 5px;
+	transition: all 0.5s ease;
+}
+
+.text{
+    font-size: 14px;
+    color: white;
+}
+
+.container-footer p{
+    color: white;
+}
+
+.footer-coli .social-links a:hover{
+	color: black;
+	background-color: rgb(195, 0, 255);
+}
+
+.rotate{
+    transform: rotate(135deg);
+}
+
+.container-footer h4{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(left, #e2ac6b 0%, #e0d2b4 74%);
+    background: -moz-linear-gradient(left, #e2ac6b 0%, #e0d2b4 74%);
+    background: -o-linear-gradient(left, #e2ac6b 0%, #e0d2b4 74%);
+    background: linear-gradient(to right, #e2ac6b 0%, #e0d2b4 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+@media(max-width: 1200px){
+	  .footer-col{
+		width: 50%;
+		margin-bottom: 30px;
+	}
+
+	body{
+	    overflow-y : scroll;
+	}
+}

@@ -1,0 +1,119 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<link href="/static/adminforms.css" rel="stylesheet">
+<style>
+#box{
+    margin-top:8%;
+}
+
+table{
+    width: 60%;
+    font-family: 'Jost', sans-serif;
+    border-left:3px solid #b421fe59;
+    border-top:3px solid #b421fe59;
+    border-bottom:3px solid #1fd1f954;
+    border-right:3px solid #1fd1f954;
+    margin-left: 5%;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+th{
+    text-align: center;
+    font-size: 20px;
+    height: 60px;
+}
+td{
+    width: 50%;
+    height:50px;
+    padding-left: 16%;
+    padding-right: 50px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+#sb{
+    transform: translateX(6%);
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <div id="box">
+        <h2>Update Movie</h2>
+            <div class="inputBox">
+                <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="text" name="lang" id="lang" placeholder="Language" autocomplete="off" required >
+            </div>
+
+            <input type="submit" class="submit-btn" value="View Details" onclick="call();">
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    /*global DOMParser */
+    var name='';
+    var lang='';
+
+    function set(){
+        console.log(document.getElementById("name"))
+        console.log(document.getElementById("lang"))
+
+
+    }
+
+    function convert (str) {
+	    var parser = new DOMParser();
+	    var doc = parser.parseFromString(str, 'text/html');
+	    return doc.body;
+    }
+
+    function call () {
+    name = document.getElementById("name").value;
+    lang = document.getElementById("lang").value;
+    var aj = new XMLHttpRequest();
+
+
+    var con = document.getElementsByClassName("movie");
+
+    var tab = document.getElementById("box");
+
+    aj.onreadystatechange = function() {
+         if(aj.readyState == 4 && aj.status == 200){
+
+             var cont = convert(aj.responseText).getElementsByTagName("movie")[0];
+             console.log(cont);
+             var name = cont.getElementsByTagName("name")[0].textContent;
+             var lang = cont.getElementsByTagName("lang")[0].textContent;
+             var length = parseInt(cont.getElementsByTagName("len")[0].textContent);
+             var genre = cont.getElementsByTagName("genre")[0].textContent;
+             var url = cont.getElementsByTagName("url")[0].textContent;
+             var cast = cont.getElementsByTagName("cast")[0].textContent;
+             var dir = cont.getElementsByTagName("dir")[0].textContent;
+             var rating = cont.getElementsByTagName("rating")[0].textContent;
+             var about = cont.getElementsByTagName("about")[0].textContent;
+             var start = cont.getElementsByTagName("start")[0].textContent;
+             var end = cont.getElementsByTagName("end")[0].textContent;
+             var pref = cont.getElementsByTagName("pref")[0].textContent;
+             var tic = cont.getElementsByTagName("tic")[0].textContent;
+
+
+             tab.innerHTML = " <h2>Update Movie</h2><form id = \"form\" action='/upd' method='POST'><table><tr><th colspan='2'> Movie Details </th></tr><tr><td>Name</td><td><input type='text' name='name' id='name' autocomplete='off' value='"+name+"'></td></tr><tr><td>Language</td><td><input type='text' name='lang' id='lang' value='"+ lang +"'></td></tr><tr><td>Runtime</td><td><input type='number' name='len' id='len' value='"+length+"'></td></tr><tr><td>Genre</td><td><input type='text' name='genre' id='gen' value='"+genre+"' autocomplete=\"off\"></td></tr><tr><td>Start Date</td><td><input type='date' id='start' value='"+start+"' name='start'> </td></tr><tr><td>End Date</td><td><input type='date' id='end' name='end' value='"+end+"'></td></tr><tr><td>Trailer Url</td><td><input type='url' name='trailer' id='trailer' value='"+url+"' autocomplete=\"off\" required></td></tr><tr><td>Director</td><td><input type=\"text\" name=\"dir\" id=\"dir\" value='"+dir+"' autocomplete=\"off\" required></td></tr><tr><td>Rating</td><td><input type=\"text\" name=\"rat\" id=\"rat\" value='"+rating+"'autocomplete='off' required></td></tr><tr><td>Cast</td><td><textarea required=\"required\"  name='cast'>"+ cast +"</textarea></td></tr><tr><td>Description</td><td><textarea required=\"required\" name='about'>"+ about +"</textarea></td></tr><tr><td>Preference</td><td><input type='number' name='pref' id='pref' autocomplete='off' value='"+ pref +"' required></td></tr><tr><td>Ticket Issue</td><td><input type='number' name='tic' id='tic' value='"+ tic +"'autocomplete='off' required></td></tr><tfoot><th colspan=\"2\"><input type=\"submit\" id=\"sb\"class=\"submit-btn\" value=\"Update\"></th></tfoot></table></form>"
+
+        }
+
+    };
+
+    console.log(name, lang);
+    aj.open("GET", "/showma?name="+name+"&lang="+lang, true);
+    aj.send();
+}
+</script>
+{% endblock %}
