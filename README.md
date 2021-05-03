@@ -17,6 +17,8 @@ The goals of this project include :
 
 ### How to run the files using a CS50 IDE
 Clone the folder web-movies and follow the steps in the video below
+
+
 https://user-images.githubusercontent.com/34683520/116859349-80ced600-ac1d-11eb-869b-b9477f3d6f9c.mp4
 
 ### Sample Login and Now Showing
