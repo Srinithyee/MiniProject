@@ -1,0 +1,114 @@
+{% extends "homepage.html" %}
+
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block style %}
+ <style>
+
+        .carousel-item{
+            position: relative;
+        }
+
+        .poster{
+            position: relative;
+        }
+
+        #reel{
+            display: flex;
+            position: absolute;
+            top: 380px;
+            right: 0px;
+        }
+
+        #reel h2{
+            font: Poppins;
+            color: white;
+            bottom: 10px;
+            cursor: pointer;
+        }
+
+        #reel img{
+            position: relative;
+            bottom: 20px;
+            cursor: pointer;
+        }
+
+        .logo h1{
+                font: 60px;
+                padding-top: 30px;
+                background: -webkit-linear-gradient(left, #cdc1ff 0%, #e5d9f2 74%);
+                background: -moz-linear-gradient(left, #cdc1ff 0%, #e5d9f2 74%);
+                background: -o-linear-gradient(left, #cdc1ff 0%, #e5d9f2 74%);
+                background: linear-gradient(to right, #cdc1ff 0%, #e5d9f2 74%);;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+        }
+
+
+        .caption{
+            position: absolute;
+            top: 380px;
+            left: 40px;
+        }
+
+
+        .caption p{
+            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 200%;
+            color: white;
+        }
+
+        .carousel-control-next{
+            position: absolute;
+            z-index: 2;
+        }
+        
+        
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/images/21.jpeg" class="d-block w-100" width="1024px" height="460px" alt="reel_cinemas">
+        </div>
+        {% for (poster,mname,lang) in moviePosters %}
+            <div class="carousel-item">
+              <img src="data:image/jpeg;base64, {{poster}}" class="d-block w-100 poster" width="1024px" height="460px" alt="{{mname}}">
+              <div id="reel">
+                  <h2>NOW SHOWING@</h2>
+                  <img src="/static/images/logo.png" class="reel"width ="100px" height="100px" alt="reel logo">
+              </div>
+
+                <div class="caption">
+                    <p>{{mname}}({{lang}})</p>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" href="#carouselExampleControls" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" href="#carouselExampleControls" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="false"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+{% endblock %}

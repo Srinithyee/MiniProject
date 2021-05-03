@@ -1,0 +1,113 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<link href="/static/adminforms.css" rel="stylesheet">
+<style>
+#box{
+    margin-top:8%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div id="box">
+        <h2>Add Movie Timings</h2>
+         <form id = "form" action="/addshow" method="post">
+            <div class="inputBox">
+                <input type="date" name="sd" id="sd" placeholder="show_date" autocomplete="off" min="{{today}}">
+            </div>
+
+            <div class="inputBox">
+                <input type="time" name="time" id="time" placeholder="show_time" autocomplete="off" min="10:00" max="23:59" required >
+            </div>
+            <div id="movies">
+
+            </div>
+
+            <input type="submit" class="submit-btn" value="ADD SHOW">
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+ /*global DOMParser*/
+
+function convert (str) {
+	var parser = new DOMParser();
+	var doc = parser.parseFromString(str, 'text/html');
+	return doc.body;
+};
+
+var sd = document.getElementById('sd')
+var st = document.getElementById('time')
+
+sd.onchange = function (){
+
+        var aj = new XMLHttpRequest();
+
+//var nj = document.querySelector(".active-img");
+
+        var con = document.getElementById("movies");
+
+
+        con.classList.add("hidden");
+  //      nj.classList.remove("active-img");
+        aj.onreadystatechange = function() {
+        if(aj.readyState == 4 && aj.status == 200){
+
+            cont = convert(aj.responseText).getElementsByTagName("movie");
+            var movies = document.createElement("SELECT");
+            movies.setAttribute("id", "movie");
+            movies.setAttribute("name", "movie");
+            console.log(cont);
+            for(var i =0; i < cont.length; i++){
+                var id = cont[i].getElementsByTagName("id")[0].textContent;
+                var name = cont[i].getElementsByTagName("name")[0].textContent;
+                var lang = cont[i].getElementsByTagName("lang")[0].textContent;
+                var length = cont[i].getElementsByTagName("len")[0].textContent;
+                var option = document.createElement("OPTION");
+                option.innerHTML = name +" "+lang+"  ~"+length+" mins";
+                option.value = id;
+                movies.options.add(option)
+
+            }
+            con.classList.toggle("hidden");
+            con.appendChild(movies);
+        }
+        };
+        aj.open("GET", "/showma?date="+sd, true);
+        aj.send();
+}
+
+
+st.onchange = function() {
+        var shows = new XMLHttpRequest();
+
+        var con = document.getElementById("movies");
+
+        var show = document.createElement("SELECT");
+        show.setAttribute("id", "show");
+        show.setAttribute("name", "show");
+        shows.onreadystatechange = function() {
+        if(shows.readyState == 4 && shows.status == 200){
+                console.log(shows.responseText,"Hi");
+                cont = convert(shows.responseText).getElementsByTagName("screen");
+            //for(var i =0; i< cont.len)
+                for(var i =0; i < cont.length; i++){
+                    var screen = cont[i].getElementsByTagName("scid")[0].textContent;
+                    var option = document.createElement("OPTION");
+                    option.innerHTML = "SCREEN " + screen;
+                    option.value = screen;
+                    show.options.add(option);
+                }
+                console.log(show);
+                con.appendChild(show);
+            }
+        };
+        shows.open("GET", "/showasc", true);
+        shows.send();
+    }
+</script>
+{% endblock %}

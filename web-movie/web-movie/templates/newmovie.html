@@ -1,0 +1,82 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<link href="/static/adminforms.css" rel="stylesheet">
+<style>
+#pos{
+    position: relative;
+    transform: translateX(-50px);
+    padding-right: 0;
+    margin-right: 0;
+}
+
+
+font{
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: rgba(233, 12, 12, 0.747);
+    margin-left: 0;
+    position: relative;
+    transform: translateX(-50px);
+}
+
+#p{
+    padding-right: 10%;
+    margin-left: 10%;
+
+}
+
+.submit-btn{
+    margin-top: 0px;
+}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+    <div id="box" style="height: 180vh; margin-top: 10%;">
+        <h2>Add New Movie</h2>
+        <form id = "form" action="/addmovie" method="post">
+            <div class="inputBox">
+                <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required>
+            </div>
+
+            <div class="sinputBox">
+                <input type="text" name="lang" id="lang" placeholder="Language" autocomplete="off" required>
+                <input type="number" name="len" id="len" placeholder="Run Time" autocomplete="off" >
+            </div>
+            <div class="sinputBox">
+                <input type="text" name="genre" id="genre" placeholder="Genre" autocomplete="off">
+                <input type="text" name="poster" id="poster" placeholder="Poster Name" autocomplete="off" required>
+            </div>
+            <div class="linputBox">
+                <label for="start">Start Date</label>
+                <label for="end">End Date</label>
+            </div>
+            <div class="sinputBox">
+                <input type="date" id="start" name="start">
+                <input type="date" id="end" name="end">
+            </div>
+            <div class="inputBox">
+                <input type="url" name="trailer" id="trailer" placeholder="Movie Trailer" autocomplete="off">
+            </div>
+
+            <div class="sinputBox">
+                <input type="number" name="pref" id="pref" placeholder="Preference" autocomplete="off" required>
+                <input type="number" name="tic" id="tic" placeholder="Ticket Issue" autocomplete="off" required>
+            </div>
+            <div class="sinputBox">
+                <input type="text" name="dir" id="dir" placeholder="Director" autocomplete="off" required>
+                <input type="text" name="rat" id="rat" placeholder="Rating" autocomplete="off" >
+            </div>
+            <div class="sinputBox">
+                <textarea cols="35" placeholder="Cast" name="cast" required="required" rows="5"></textarea>
+                <textarea cols="35" placeholder="About the Movie" name="about" required="required" rows="5"></textarea>
+            </div>
+
+            <input type="submit" class="submit-btn" value="Add Movie">
+        </form>
+    </div>
+{% endblock %}

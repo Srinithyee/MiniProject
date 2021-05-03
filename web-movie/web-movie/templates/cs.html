@@ -1,0 +1,129 @@
+{% extends "homepage.html" %}
+
+
+{% block title%}
+Coming Soon
+{% endblock %}
+
+{% block style %}
+<link href="/static/movielist.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="nowshow-container">
+    <div class="movie hidden" id="movie-content">
+
+    </div>
+
+    <div class="carousel-wrapper-show" id="cns">
+        <div class="owl-carousel owl-theme">
+          {% for (poster,name,lang) in moviePosters %}
+          <div class="item">
+            <img src="data:image/jpeg;base64, {{poster}}" class="mov" id="{{name}}&lang={{lang}}" onclick="image(this)">
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+ $('.owl-carousel').owlCarousel({
+    margin: 15,
+    loop: false,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    rewind: true,
+    items: 4,
+    navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"],
+    responsive: {
+      0: {
+          items: 1
+       },
+      600: {
+          items: 4
+      },
+      1000: {
+          items: 5
+      }
+     }
+ });
+</script>
+</div>
+{% endblock %}
+
+{% block script %}
+
+<script>
+ /*global DOMParser*/
+
+ function convert (str) {
+	var parser = new DOMParser();
+	var doc = parser.parseFromString(str, 'text/html');
+	return doc.body;
+ };
+
+ //var cont = "<movie><name>Master<name><lang>Tamil</lang></movie><movie><name>Master<name><lang>English</lang></movie>";
+  window.scrollBy(0,90);
+
+  function image(id){
+    var cont;
+
+    var aj = new XMLHttpRequest();
+
+    var nj = document.querySelector(".active-img");
+
+    var con = document.getElementById("movie-content");
+
+    if (nj){
+        con.classList.add("hidden");
+        nj.classList.remove("active-img");
+    }
+
+    aj.onreadystatechange = function() {
+         if(aj.readyState == 4 && aj.status == 200){
+
+             cont = convert(aj.responseText).getElementsByTagName("movie")[0];
+             console.log(cont);
+             var name = cont.getElementsByTagName("name")[0].textContent;
+             var lang = cont.getElementsByTagName("lang")[0].textContent;
+             var length = cont.getElementsByTagName("len")[0].textContent;
+             var genre = cont.getElementsByTagName("genre")[0].textContent;
+             var url = cont.getElementsByTagName("url")[0].textContent;
+             var start = new Date(cont.getElementsByTagName("start")[0].textContent).toDateString();
+             if(start === "Invalid Date"){
+                 start = "TBA";
+             }
+             var cast = cont.getElementsByTagName("cast")[0].textContent;
+             var dir = cont.getElementsByTagName("dir")[0].textContent;
+             var rating = cont.getElementsByTagName("rating")[0].textContent;
+             var about = cont.getElementsByTagName("about")[0].textContent;
+
+             //console.log(name);
+             document.getElementById("cns").style.marginTop = "17%";
+             if(url === "None"){
+                 var pos = cont.getElementsByTagName("poster")[0].textContent;
+                 con.innerHTML = "<div class='details'><h2>"+name+"</h2><p>Rating "+rating+"  | "+length+" min   | "+ genre+"   | "+lang+"</p><p>Release Date : "+start+" "+" "+"</p><p>"+about+"</p><p>Director: "+dir+"<br>Stars: "+cast+"<br></p></div><img src=data:image/jpeg;base64,"+pos+">";
+             }
+             else{
+                con.innerHTML = "<div class='details'><h2>"+name+"</h2><p>Rating "+rating+"  | "+length+" min | "+ genre+"   | "+lang+"</p><p>Release Date : "+start+"</p><p>"+about+"</p><p>Director: "+dir+"<br>Stars: "+cast+"<br></p></div><iframe src=\""+url+"\"></iframe>";
+             }
+             id.classList.add("active-img");
+             con.classList.toggle("hidden");
+             //console.log(id.classList);
+        }
+    };
+    aj.open("GET", "/csm?name="+id.id, true);
+    aj.send();
+
+   // let op = con.getElementsByTagName('movie');
+
+    //console.log(op, op);
+}
+
+</script>
+
+{% endblock %}

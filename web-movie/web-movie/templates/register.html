@@ -1,0 +1,73 @@
+{% extends "startup.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block body %}
+    <h2>Register</h2>
+    <form id = "form" action="/register" method="post">
+        <div class="inputBox">
+            <input type="text" name="username" id="username" placeholder="User Name" autocomplete="off" required>
+        </div>
+        <div class="inputBox">
+            <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+        </div>
+        <input type="checkbox" id = "pass"><label for="checkbox">Show Password</label>
+
+        <div class="inputBox">
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" autocomplete="off" required>
+        </div>
+
+        <input type="checkbox" id = "confirm"><label for="checkbox">Show Password</label>
+
+        <div class="inputBox">
+            <input type="text" name="email" id="email" placeholder="Mail ID" autocomplete="off" required>
+        </div>
+
+        <div class="inputBox">
+            <input type="tel" name="contact" id="contact" pattern="[0-9]{10}" placeholder="Contact" autocomplete="off" required>
+        </div>
+
+        <input type="submit" class="submit-btn" value="Register">
+    </form>
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        let x = document.getElementById("password");
+        let y = document.getElementById("confirm-password");
+        let pass = document.getElementById("pass");
+        let conf = document.getElementById("confirm");
+        let form = document.getElementById("form");
+
+        function seepass(){
+        pass.onclick = function(){
+            if (x.type === "password"){
+                x.type = "text";
+            }else{
+                    x.type = "password";
+                }
+            }
+
+        conf.onclick = function(){
+            if (y.type === "password"){
+                y.type = "text";
+            }else{
+                    y.type = "password";
+                }
+            }
+        }
+
+        form.onsubmit = function check(){
+            if(x.val() != y.val()){
+                alert("Password and Confirmation Passwords dont match...");
+                event.preventDefault();
+            }
+        }
+
+        seepass();
+
+    </script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "admin.html" %}
+
+
+{% block style %}
+<link href="/static/adminforms.css" rel="stylesheet">
+<style>
+#box{
+    margin-top:8%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div id="box">
+        <h2>Delete Movie</h2>
+        <form id = "form" action="/delmovie" method="post">
+            <div class="inputBox">
+                <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="text" name="lang" id="name" placeholder="Language" autocomplete="off" required>
+            </div>
+
+            <input type="submit" class="submit-btn" value="Delete Movie">
+        </form>
+    </div>
+{% endblock %}
