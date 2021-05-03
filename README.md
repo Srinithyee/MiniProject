@@ -1,11 +1,7 @@
 # Theatre-Ticket-Booking-System
-These are a set of documents that support a project on Theatre Ticket Booking System, I had developed for Object Oriented Design Lab at College.
-This project was done in collaboration with :
-1. Sharan Giri
-2. Shanmuga Priya M G 
-3. Srinithyee S K 
+These are a set of documents that support a project on Theatre Ticket Booking System developed for Object Oriented Design Lab at College.
 
-Statement:
+# Problem Statement:
 
 The cinema has been a very popular medium of entertainment for all classes of people. Today cinema has become the most popular and the cheapest means of entertainment. This project is  aimed to provide the customers  facility to book tickets for cinema halls through which they can book tickets any time anywhere.
 
@@ -17,3 +13,24 @@ The goals of this project include :
 1.	To provide anytime anyplace service to customers.
 2.	To reduce the number of people at ticket box counters (following the norms placed with the current pandemic situation).
 
+## DEMO : User's Side
+
+### How to run the files using a CS50 IDE
+Clone the folder web-movies and follow the steps in the video below
+https://user-images.githubusercontent.com/34683520/116859349-80ced600-ac1d-11eb-869b-b9477f3d6f9c.mp4
+
+### Sample Login and Now Showing
+https://user-images.githubusercontent.com/34683520/116859359-85938a00-ac1d-11eb-8325-0538201f20fb.mp4
+
+### Terms and Conditions
+https://user-images.githubusercontent.com/34683520/116859373-8d532e80-ac1d-11eb-9a19-5a0acfc0d8e1.mp4
+
+### Seat Booking
+https://user-images.githubusercontent.com/34683520/116859384-93e1a600-ac1d-11eb-8172-ff96ec5d295a.mp4
+
+
+
+### This project is done by :
+1. Sharan Giri
+2. Shanmuga Priya M G 
+3. Srinithyee S K 
