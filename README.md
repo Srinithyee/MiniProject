@@ -22,7 +22,7 @@ Clone the folder web-movies and follow the steps in the video below
 
 https://user-images.githubusercontent.com/34683520/116859349-80ced600-ac1d-11eb-869b-b9477f3d6f9c.mp4
 
-### Sample Login and Now Showing
+### Sample Login, Now Showing and Coming Soon
 https://user-images.githubusercontent.com/34683520/116859359-85938a00-ac1d-11eb-8325-0538201f20fb.mp4
 
 ### Terms and Conditions
